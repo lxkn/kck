@@ -44,6 +44,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\manage.jpg" Stretch="Fill" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="18" Grid.RowSpan="13" />
+        <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\menu.png" Stretch="Fill" Grid.Column="6"  Grid.ColumnSpan="6" Grid.RowSpan="4"/>
         <Button x:Name="KlubyCRUD" Content="Kluby" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="8" Click="onKlubyClick"/>
         <Button x:Name="ZawdonicyCRUD" Content="Zawodnicy" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="8" Click="onZawodnicyClick"/>
     </Grid>
