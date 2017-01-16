@@ -1,0 +1,43 @@
+﻿<Window x:Class="KCK_v2.KlubInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KCK_v2"
+        mc:Ignorable="d"
+        Title="KlubInfo" Height="370" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Image x:Name="klubAvatar" Source="{Binding Source}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4"></Image>
+        <TextBlock Text="Nazwa Klubu:" Grid.Column="0" TextAlignment="Center" Grid.Row="5" Grid.ColumnSpan="10"/>
+        <TextBlock x:Name="klubName" Grid.Column="0" TextAlignment="Center" Grid.Row="6" Grid.ColumnSpan="10"/>
+        <TextBlock Text="Majątek Klubu:" Grid.Column="0" TextAlignment="Center" Grid.Row="7" Grid.ColumnSpan="10"/>
+        <TextBlock x:Name="klubMajatek" Grid.Column="0" TextAlignment="Center" Grid.Row="8" Grid.ColumnSpan="10"/>
+        <Button x:Name="team" Grid.Column="0" Content="Team" Grid.Row="9" Grid.ColumnSpan="10" Click="team_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kckModelStoreContainer" CdmEntityContainer="Context">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="kckModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="wiek" ColumnName="wiek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

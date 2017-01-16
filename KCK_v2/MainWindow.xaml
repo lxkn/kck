@@ -1,0 +1,55 @@
+﻿<Window x:Class="KCK_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KCK_v2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\manage.jpg" Stretch="Fill" Grid.ColumnSpan="20" Grid.RowSpan="20"/>
+        <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\logo.png" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="10" Grid.RowSpan="3"/>
+        <TextBlock x:Name="login"  Foreground="#000" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="7"><Run Text="login:"></Run></TextBlock>
+        <TextBox x:Name="loginField" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="7"></TextBox>
+        <TextBlock x:Name="haslo" Foreground="#000" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="7"><Run Text="hasło:"></Run></TextBlock>
+        <PasswordBox x:Name="hasloField" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="7" ></PasswordBox>
+        <Button x:Name="loguj" Content="Zaloguj" Grid.Column="6" Grid.Row="9" Grid.ColumnSpan="7" Click="button_Click"></Button>
+        <TextBlock x:Name="error" Foreground="Red" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="15"></TextBlock>
+    </Grid>
+</Window>

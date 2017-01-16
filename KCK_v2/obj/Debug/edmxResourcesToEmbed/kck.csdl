@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kckModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="klub">
+    <Key>
+      <PropertyRef Name="id_klub" />
+    </Key>
+    <Property Name="id_klub" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="majatek" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="zawodnicy" Relationship="Self.zawodnicy_ibfk_1" FromRole="klub" ToRole="zawodnicy" />
+    <Property Name="path" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="login" />
+    </Key>
+    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="wiek" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="zawodnicy">
+    <Key>
+      <PropertyRef Name="id_zawodnik" />
+    </Key>
+    <Property Name="id_zawodnik" Type="Int32" Nullable="false" />
+    <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nazwisko" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="wartosc" Type="Int32" Nullable="false" />
+    <Property Name="pozycja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_klub" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="klub" Relationship="Self.zawodnicy_ibfk_1" FromRole="zawodnicy" ToRole="klub" />
+  </EntityType>
+  <Association Name="zawodnicy_ibfk_1">
+    <End Role="klub" Type="Self.klub" Multiplicity="1" />
+    <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klub">
+        <PropertyRef Name="id_klub" />
+      </Principal>
+      <Dependent Role="zawodnicy">
+        <PropertyRef Name="id_klub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="kck" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="klub" EntityType="Self.klub" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" />
+    <AssociationSet Name="zawodnicy_ibfk_1" Association="Self.zawodnicy_ibfk_1">
+      <End Role="klub" EntitySet="klub" />
+      <End Role="zawodnicy" EntitySet="zawodnicy" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

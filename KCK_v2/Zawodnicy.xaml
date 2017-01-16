@@ -1,0 +1,144 @@
+﻿<Window x:Class="KCK_v2.Zawodnicy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KCK_v2"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\manage.jpg" Stretch="Fill" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="18" Grid.RowSpan="13" />
+        <ListView x:Name="klubyListBox" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="9">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridView.Columns>
+                        <GridViewColumn Header="Id Zawodnika:"
+                            DisplayMemberBinding="{Binding id_zawodnik}" />
+                        <GridViewColumn Header="Imie:"
+                            DisplayMemberBinding="{Binding imie}" />
+                        <GridViewColumn Header="Nazwisko:"
+                            DisplayMemberBinding="{Binding nazwisko}" />
+                        <GridViewColumn Header="Wartosc:"
+                            DisplayMemberBinding="{Binding wartosc}" />
+                        <GridViewColumn Header="Pozycja:"
+                            DisplayMemberBinding="{Binding pozycja}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <Button x:Name="addButton"  BorderBrush="#99FFFFFF" BorderThickness="2" RenderTransformOrigin="0.5,0.5" Foreground="#fff" Content="Dodaj" Grid.Column="13" Margin="0 0 0 20" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Click="addButtonClick">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#AA000000"/>
+                    <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#BB000000"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                            <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                            
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="editButton" BorderBrush="#99FFFFFF" BorderThickness="2" RenderTransformOrigin="0.5,0.5" Background="#AA000000" Foreground="#fff" Content="Edytuj" Grid.Column="13" Margin="0 10 0 10" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="3" Click="editButtonClick">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#AA000000"/>
+                    <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#BB000000"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                            <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="delButton" BorderBrush="#99FFFFFF" BorderThickness="2" RenderTransformOrigin="0.5,0.5" Background="#AA000000" Foreground="#fff" Content="Usuń" Grid.Column="13" Margin="0,20,0,0" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3" Click="deleteButtonClick">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#AA000000"/>
+                    <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFF2F2"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                            <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock x:Name="error" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="11"/>
+    </Grid>
+</Window>

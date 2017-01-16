@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kckModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="klub">
+          <Key>
+            <PropertyRef Name="id_klub" />
+          </Key>
+          <Property Name="id_klub" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="majatek" Type="int" Nullable="false" />
+          <Property Name="path" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="haslo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wiek" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="zawodnicy">
+          <Key>
+            <PropertyRef Name="id_zawodnik" />
+          </Key>
+          <Property Name="id_zawodnik" Type="int" Nullable="false" />
+          <Property Name="imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="wartosc" Type="int" Nullable="false" />
+          <Property Name="pozycja" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_klub" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="zawodnicy_ibfk_1">
+          <End Role="klub" Type="Self.klub" Multiplicity="1" />
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="klub">
+              <PropertyRef Name="id_klub" />
+            </Principal>
+            <Dependent Role="zawodnicy">
+              <PropertyRef Name="id_klub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kckModelStoreContainer">
+          <EntitySet Name="klub" EntityType="Self.klub" Schema="kck" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="kck" store:Type="Tables" />
+          <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" Schema="kck" store:Type="Tables" />
+          <AssociationSet Name="zawodnicy_ibfk_1" Association="Self.zawodnicy_ibfk_1">
+            <End Role="klub" EntitySet="klub" />
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kckModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="klub">
+          <Key>
+            <PropertyRef Name="id_klub" />
+          </Key>
+          <Property Name="id_klub" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="majatek" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="zawodnicy" Relationship="Self.zawodnicy_ibfk_1" FromRole="klub" ToRole="zawodnicy" />
+          <Property Name="path" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="wiek" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="zawodnicy">
+          <Key>
+            <PropertyRef Name="id_zawodnik" />
+          </Key>
+          <Property Name="id_zawodnik" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="wartosc" Type="Int32" Nullable="false" />
+          <Property Name="pozycja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_klub" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="klub" Relationship="Self.zawodnicy_ibfk_1" FromRole="zawodnicy" ToRole="klub" />
+        </EntityType>
+        <Association Name="zawodnicy_ibfk_1">
+          <End Role="klub" Type="Self.klub" Multiplicity="1" />
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="klub">
+              <PropertyRef Name="id_klub" />
+            </Principal>
+            <Dependent Role="zawodnicy">
+              <PropertyRef Name="id_klub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kck" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="klub" EntityType="Self.klub" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" />
+          <AssociationSet Name="zawodnicy_ibfk_1" Association="Self.zawodnicy_ibfk_1">
+            <End Role="klub" EntitySet="klub" />
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kckModelStoreContainer" CdmEntityContainer="kck">
+          <EntitySetMapping Name="klub">
+            <EntityTypeMapping TypeName="kckModel.klub">
+              <MappingFragment StoreEntitySet="klub">
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="id_klub" ColumnName="id_klub" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="majatek" ColumnName="majatek" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="kckModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+                <ScalarProperty Name="wiek" ColumnName="wiek" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zawodnicy">
+            <EntityTypeMapping TypeName="kckModel.zawodnicy">
+              <MappingFragment StoreEntitySet="zawodnicy">
+                <ScalarProperty Name="id_zawodnik" ColumnName="id_zawodnik" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="wartosc" ColumnName="wartosc" />
+                <ScalarProperty Name="pozycja" ColumnName="pozycja" />
+                <ScalarProperty Name="id_klub" ColumnName="id_klub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

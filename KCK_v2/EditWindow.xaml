@@ -1,0 +1,37 @@
+﻿<Window x:Class="KCK_v2.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KCK_v2"
+        mc:Ignorable="d"
+         Title="AddWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="nazwa" Text="nazwa:" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="5"></TextBlock>
+        <TextBox x:Name="nazwaField" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="5"/>
+        <TextBlock x:Name="majatek" Text="majątek:" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="5"></TextBlock>
+        <TextBox x:Name="majatekField" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="5"/>
+        <Button x:Name="saveButton" Content="Zapisz" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Click="onSave"/>
+        <Button x:Name="cancelButton" Content="Anuluj" Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2" Click="onCancel"/>
+    </Grid>
+</Window>

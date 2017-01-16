@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kckModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="login" />
+    </Key>
+    <Property Name="Imie" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="wiek" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="kckContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="klub" EntityType="kckModel.klub" />
+    <EntitySet Name="zawodnicy" EntityType="kckModel.zawodnicy" />
+    <AssociationSet Name="klub_ibfk_1" Association="kckModel.klub_ibfk_1">
+      <End Role="zawodnicy" EntitySet="zawodnicy" />
+      <End Role="klub" EntitySet="klub" />
+    </AssociationSet>
+    <AssociationSet Name="zawodnicy_ibfk_1" Association="kckModel.zawodnicy_ibfk_1">
+      <End Role="klub" EntitySet="klub" />
+      <End Role="zawodnicy" EntitySet="zawodnicy" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="klub">
+    <Key>
+      <PropertyRef Name="id_klub" />
+    </Key>
+    <Property Name="id_klub" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="majatek" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="zawodnicy" Relationship="kckModel.klub_ibfk_1" FromRole="klub" ToRole="zawodnicy" />
+    <NavigationProperty Name="zawodnicy1" Relationship="kckModel.zawodnicy_ibfk_1" FromRole="klub" ToRole="zawodnicy" />
+  </EntityType>
+  <EntityType Name="zawodnicy">
+    <Key>
+      <PropertyRef Name="id_zawodnik" />
+    </Key>
+    <Property Name="id_zawodnik" Type="Int32" Nullable="false" />
+    <Property Name="imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="wartosc" Type="Int32" Nullable="false" />
+    <Property Name="pozycja" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_klub" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="klub" Relationship="kckModel.klub_ibfk_1" FromRole="zawodnicy" ToRole="klub" />
+    <NavigationProperty Name="klub1" Relationship="kckModel.zawodnicy_ibfk_1" FromRole="zawodnicy" ToRole="klub" />
+  </EntityType>
+  <Association Name="klub_ibfk_1">
+    <End Type="kckModel.zawodnicy" Role="zawodnicy" Multiplicity="1" />
+    <End Type="kckModel.klub" Role="klub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zawodnicy">
+        <PropertyRef Name="id_zawodnik" />
+      </Principal>
+      <Dependent Role="klub">
+        <PropertyRef Name="id_zawodnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="zawodnicy_ibfk_1">
+    <End Type="kckModel.klub" Role="klub" Multiplicity="1" />
+    <End Type="kckModel.zawodnicy" Role="zawodnicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klub">
+        <PropertyRef Name="id_klub" />
+      </Principal>
+      <Dependent Role="zawodnicy">
+        <PropertyRef Name="id_klub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

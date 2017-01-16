@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kckModelStoreContainer" CdmEntityContainer="kckContext">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="kckModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+          <ScalarProperty Name="wiek" ColumnName="wiek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klub">
+      <EntityTypeMapping TypeName="kckModel.klub">
+        <MappingFragment StoreEntitySet="klub">
+          <ScalarProperty Name="majatek" ColumnName="majatek" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="id_klub" ColumnName="id_klub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zawodnicy">
+      <EntityTypeMapping TypeName="kckModel.zawodnicy">
+        <MappingFragment StoreEntitySet="zawodnicy">
+          <ScalarProperty Name="id_klub" ColumnName="id_klub" />
+          <ScalarProperty Name="pozycja" ColumnName="pozycja" />
+          <ScalarProperty Name="wartosc" ColumnName="wartosc" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="id_zawodnik" ColumnName="id_zawodnik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
