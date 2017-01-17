@@ -39,9 +39,10 @@ namespace KCK_v2
             nowy.id_klub = In;
             nowy.majatek = int.Parse(majatekField.Text);
             nowy.nazwa = nazwaField.Text;
-            nowy.path = "barca.png";
+            nowy.path = pathField.Text;
             db.klub.Add(nowy);
             db.SaveChanges();
+            this.Close();
             
         }
 

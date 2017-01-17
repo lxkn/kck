@@ -45,9 +45,9 @@
         </Grid.RowDefinitions>
         <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\manage.jpg" Stretch="Fill" Grid.ColumnSpan="20" Grid.RowSpan="20"/>
         <Image Source="C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\img\logo.png" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="10" Grid.RowSpan="3"/>
-        <TextBlock x:Name="login"  Foreground="#000" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="7"><Run Text="login:"></Run></TextBlock>
+        <TextBlock x:Name="login"  Foreground="#f11111" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="7"><Run Text="login:"></Run></TextBlock>
         <TextBox x:Name="loginField" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="7"></TextBox>
-        <TextBlock x:Name="haslo" Foreground="#000" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="7"><Run Text="hasło:"></Run></TextBlock>
+        <TextBlock x:Name="haslo" Foreground="#f11111" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="7"><Run Text="hasło:"></Run></TextBlock>
         <PasswordBox x:Name="hasloField" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="7" ></PasswordBox>
         <Button x:Name="loguj" Content="Zaloguj" Grid.Column="6" Grid.Row="9" Grid.ColumnSpan="7" Click="button_Click"></Button>
         <TextBlock x:Name="error" Foreground="Red" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="15"></TextBlock>

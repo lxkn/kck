@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\obj\Debug\
+C:\Users\lxkn\documents\visual studio 2015\Projects\KCK_v2\KCK_v2\obj\Debug\
 KCK_v2
 none
 false
 DEBUG;TRACE
-C:\Users\lxkn\Documents\visual studio 2015\Projects\KCK_v2\KCK_v2\App.xaml
+C:\Users\lxkn\documents\visual studio 2015\Projects\KCK_v2\KCK_v2\App.xaml
 101936839528
 3-1242712912
 25374063314
-18-406838226
+181227513720
 AddWindow.xaml;AddZawodnik.xaml;EditWindow.xaml;EditZawodnik.xaml;Klub.xaml;KlubInfo.xaml;MainWindow.xaml;menuPage.xaml;Team.xaml;Zawodnicy.xaml;
 
-False
+True
 
